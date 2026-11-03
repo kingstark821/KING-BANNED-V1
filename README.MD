@@ -30,13 +30,13 @@ bash unzip KING-BANNED-V1.zip cd KING-BANNED-V1
 
 ### Étape 3: Installer les dépendances
 ```
-bash npm install
+npm install
 ```
 
 
 ### Étape 4: Lancement
 ```
-bash node index.js
+node index.js
 ```
 
 
