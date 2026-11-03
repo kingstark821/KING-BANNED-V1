@@ -1,46 +1,39 @@
 import chalk from 'chalk';
 
-// Couleurs
+// Palette des couleurs de ton site KING GENERATOR (Purple/Royal)
 const colors = {
-    purple: '#8A2BE2',
-    darkPurple: '#4B0082',
-    gold: '#FFD700',
-    neon: '#00FFFF',
-    bg: '#050510'
+    purple: '#8A2BE2',    // BlueViolet
+    darkPurple: '#4B0082', // Indigo
+    gold: '#FFD700',    // Or royal
+    neon: '#00FFFF',    // Cyan pour contraste
+    bg: '#050510'    // Fond sombre
 };
 
 export function printRoyalHeader() {
     console.clear();
-    console.log(chalk.hex(colors.gold)(`\n ╔════════════════════════════════════════════════╗`));
-    console.log(chalk.hex(colors.gold)(` ║   𝐊𝐈𝐍𝐆 𝐁𝐀𝐍𝐍𝐄𝐃 — 𝗗𝗘𝗩 𝗕𝗬 𝐊𝐈𝐍𝐆 𝐒𝐓𝐀𝐑𝐊    ║`));
-    console.log(chalk.hex(colors.gold)(` ╚════════════════════════════════════════════════╝\n`));
+    console.log(chalk.hex(colors.gold)(`\n ╔════════════════════════════════════════════════╗\n ║   𝐊𝐈𝐍𝐆 𝐁𝐀𝐍𝐍𝐄𝐃 — 𝗗𝗘𝗩 𝗕𝗬 𝐊𝐈𝐍𝐆 𝐒𝐓𝐀𝐑𝐊    ║\n ╚════════════════════════════════════════════════╝`));
+    console.log(chalk.gray(`[ SYSTEM READY ] ${new Date().toLocaleTimeString()}`));
 }
 
 export function purpleMatrixEffect() {
+    // Fait apparaître des lignes violettes et du texte comme dans les films
     const chars = 'KINGSTARkXy$#@&•⚡';
   
-    // L'effet visuel rapide
-    let index = 0;
-    const interval = setInterval(() => {
+    setInterval(() => {
+    // Effacer une ligne aléatoire au lieu de tout nettoyer
+    process.stdout.write('\x1B[' + (Math.floor(Math.random() * 20) + 1) + 'A'); 
     let line = '│ ';
-    for (let i = 0; i < 60; i++) {
-    const char = chars[Math.floor(Math.random() * chars.length)];
-    line += Math.random() > 0.8? chalk.hex(colors.purple)(char): chalk.hex(colors.darkPurple)(char);
+    for (let i = 0; i < 50; i++) {
+    line += chars[Math.floor(Math.random() * chars.length)];
    }
     line += ' │';
-
-    moveUp(20); // On remonte l'écran
-    process.stdout.write(line);
-    index++;
-    if(index > 20) clearInterval(interval);
-
+  
+    // Mélange de violet et de cyan pour l'effet "KING GENERATOR"
+    const randomColor = Math.random() > 0.5? colors.purple: colors.gold;
+    line = line.replace(/./g, char => Math.random() > 0.8? chalk.hex(randomColor)(char): chalk.hex(colors.darkPurple)(char));
+  
+    process.stdout.write(chalk.hex(colors.purple)(line));
     }, 50);
-}
-
-function moveUp(lines) {
-    for (let i = 0; i < lines; i++) {
-    process.stdout.write('\x1B[' + (1) + 'A'); // Move up
-   }
 }
 
 export function printBanProgress(targetNumber) {
