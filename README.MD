@@ -13,22 +13,31 @@ L'interface imite un terminal de haute sécurité avec des lignes violettes, une
 ## 🚀 Installation (Termux)
 
 ### Étape 1: Installer Node.js
-`bash pkg update && pkg upgrade pkg install nodejs`
+```
+bash pkg update && pkg upgrade pkg install nodejs
+```
 
 ### Étape 2: Cloner le Repo (ou dézipper) Si tu es sur GitHub:
 ```
 bash git clone https://github.com/kingstark821/KING-BANNED-V1.git cd KING-BANNED-V1
+```
 
-Si tu utilise le ZIP:bash unzip KING-BANNED-V1.zip cd KING-BANNED-V1
+# Si tu utilise le ZIP:
+```
+bash unzip KING-BANNED-V1.zip cd KING-BANNED-V1
 ```
 
 
 ### Étape 3: Installer les dépendances
-`bash npm install`
+```
+bash npm install
+```
 
 
 ### Étape 4: Lancement
-`bash node index.js`
+```
+bash node index.js
+```
 
 
 ## ✨ Fonctionnalités V1
