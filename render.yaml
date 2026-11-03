@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: king-banned-v1
+    runtime: node
+    env: node
+    envVars:
+    - key: PORT
+    value: 10000
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free # Pour utiliser l'offre gratuite de Render

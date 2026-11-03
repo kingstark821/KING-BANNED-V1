@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090511">
+<meta name="description" content="KING BANNED V1 — SYSTEM LOCKDOWN PROTOCOL.">
+<title>KING BANNED V1 // SYSTEM OVERRIDDEN</title>
+<style>
+:root{
+  --purple:#9b5cff;
+  --purple2:#6d28d9;
+  --bg:#090511;
+  --panel:rgba(10, 5, 20,.96);
+  --white:#f7f0ff;
+  --muted:#b8a5d4;
+  --border:rgba(166,105,255,.65);
+  --green:#75f0bd;
+  --alert:#ff004c;
+}
+*{box-sizing:border-box}
+html{min-height:100%;scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 15%,#1a0533 0%,#090511 60%,#000 100%);color:var(--white);font-family:'Courier New', Courier, monospace;overflow-x:hidden}
+#matrix{position:fixed;inset:0;z-index:0;width:100%;height:100%;opacity:.4;pointer-events:none}
+.scanlines{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.08;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(155, 44, 255, 0.4) 3px)}
+.page{position:relative;z-index:1;width:100%;min-height:100vh;padding:17px 14px 24px}
+.topbar,.panel{border:1px solid var(--border);background:var(--panel);box-shadow:0 15px 50px #0008,0 0 30px #4b008210;backdrop-filter:blur(15px);border-radius:14px}
+.topbar{max-width:1060px;margin:0 auto 30px;padding:10px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:44px;height:44px;display:grid;place-items:center;flex-shrink:0;border:2px solid var(--purple);border-radius:12px;background:linear-gradient(145deg,#2d0e60,#9b5cff33);font-size:20px;font-weight:900;letter-spacing:-2px;box-shadow:0 0 15px #8b3dff4d;text-shadow:0 0 10px var(--purple)}
+.brand-name{font-size:14px;font-weight:900;letter-spacing:1px;color:var(--purple)}
+.brand-sub{margin-top:4px;color:var(--muted);font-size:8px;letter-spacing:2px;text-transform:uppercase}
+.status{display:flex;align-items:center;gap:8px;color:#ff2a6d;font-size:10px;font-weight:800;letter-spacing:1px;text-shadow:0 0 10px #ff004c95}
+.dot{width:8px;height:8px;border-radius:50%;background:#ff004c;box-shadow:0 0 15px #ff004c;animation:shake 0.5s infinite alternate}
+@keyframes pulse{50%{opacity:.4}}
+@keyframes shake{from{transform:translate(0,0);}to{transform:translate(1px,1px);}}
+.hero{max-width:850px;margin:0 auto 20px;text-align:center}
+.eyebrow{display:inline-flex;padding:6px 12px;border:1px solid var(--alert);border-radius:4px;background:rgba(255,0,76,0.15);color:#ff5c8d;font-size:10px;letter-spacing:3px;font-weight:900;text-transform:uppercase}
+h1{margin:15px 0 10px;font-size:clamp(35px,7vw,60px);line-height:1;letter-spacing:0px;font-weight:900;text-shadow:0 0 20px #9b5cff, 4px 4px 0px #000;animation:textFlash 3s infinite alternate}
+h1 span{color:var(--alert)}
+.hero p{max-width:600px;margin:0 auto;color:#d0b4f0;font-size:13px;line-height:1.7;letter-spacing:1px}
+.hero-line{width:120px;height:3px;margin:20px auto 0;background:linear-gradient(90deg,transparent,var(--alert),transparent);box-shadow:0 0 15px var(--alert)}
+.grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:25px;align-items:stretch}
+.panel{min-width:0;border-radius:16px;overflow:hidden}
+.panel-head{padding:20px 22px;border-bottom:1px solid var(--border);background:linear-gradient(90deg,#33156a00,transparent)}
+.kicker{color:#fff;font-size:9px;font-weight:900;letter-spacing:2px;background:#9b5cff;border:1px solid #9b5cff;display:inline-block;padding:2px 6px;border-radius:4px}
+.panel-title{margin:10px 0 0;font-size:22px;font-weight:900;text-transform:uppercase;color:#fff}
+.content{padding:24px}
+.symbol{width:60px;height:60px;margin:5px auto 20px;display:grid;place-items:center;border:1px solid var(--purple);border-radius:50%;background:radial-gradient(circle,#48217a,#000 75%);font-size:24px;font-weight:900;box-shadow:0 0 40px #8b3dff44;text-shadow:0 0 10px #fff}
+.system-heading{text-align:center;margin:15px 0 5px;font-size:18px;letter-spacing:2px;color:var(--purple)}
+.desc{text-align:center;color:var(--muted);font-size:11px;line-height:1.8;letter-spacing:1px}
+.features{list-style:none;padding:0;margin:25px 0 0}
+.features li{display:flex;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,0.1);color:#d0b4f0;font-size:11px;line-height:1.6}
+.num{color:#ff5c8d;font-weight:900;font-size:12px;}
+.note{margin-top:15px;padding:12px;border:1px solid #ff004c30;border-radius:8px;background:rgba(255,0,76,0.1);color:#ff9999;font-size:10px;line-height:1.5;box-shadow:0 0 15px rgba(255,0,76,0.1)}
+.actions{display:grid;gap:15px;margin-top:20px}
+.action{display:block;text-decoration:none;text-align:center;padding:16px 14px;border:1px solid var(--purple);border-radius:8px;color:#fff;background:linear-gradient(180deg,#6d28d9 0%,#280a56 100%);font-weight:800;font-size:12px;letter-spacing:1px;box-shadow:0 0 0 transparent;transition:0.3s animation:borderPulse 2s infinite}
+.action:hover{background:linear-gradient(180deg,#9b5cff 0%,#4809c9 100%);box-shadow:0 0 20px #8b3dff45}
+.action.secondary{background:#0a0510;border-color:#55249a;color:#bfa8ff}
+.steps{counter-reset:step;list-style:none;margin:20px 0 0;padding:0}
+.steps li{counter-increment:step;position:relative;padding:0 0 20px 45px;color:#c4b8e0;font-size:11px;line-height:1.6}
+.steps li:before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:0;width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--border);border-radius:6px;background:#1a0520;color:#ff5c8d;font-weight:900;font-size:12px}
+.footer{max-width:1000px;margin:20px auto 0;padding:25px 10px 15px;text-align:center;border-top:1px solid #333}
+.footer-title{color:#fff;font-size:14px;font-weight:900;letter-spacing:3px}
+.footer-sub{margin-top:10px;color:#65448c;font-size:9px;line-height:2;letter-spacing:1px}
+.credit{margin-top:12px;color:#e0cff7;font-size:11px;font-weight:900;letter-spacing:2px;text-shadow:0 0 5px #9b5cff}
+
+@media(max-width:760px){.page{padding:12px 8px 20px}.grid{grid-template-columns:1fr}
+.topbar{margin-bottom:20px;padding:8px}
+.logo{width:35px;height:35px;font-size:15px}
+.status{font-size:9px}
+h1{font-size:32px}.feature p{font-size:10px}}
+@keyframes textFlash{0%{color:#fff;text-shadow:0 0 20px #9b5cff;}50%{color:#ff004c;text-shadow:0 0 30px #ff004c;}100%{color:#fff;text-shadow:0 0 20px #9b5cff;}}
+</style>
+</head>
+<body>
+<canvas id="matrix" aria-hidden="true"></canvas><div class="scanlines" aria-hidden="true"></div>
+<div class="page">
+<header class="topbar">
+  <div class="brand"><div class="logo">K.S</div><div><div class="brand-name">KING BANNED V1</div><div class="brand-sub">SYSTEM OVERRIDDEN // LOCKDOWN</div></div></div>
+  <div class="status"><span class="dot"></span> ALERT: GLOBAL TRACKING</div>
+</header>
+<section class="hero">
+  <div class="eyebrow">⚠️ CRITICAL FAILURE IMMINENT ⚠️</div>
+  <h1>SYSTEM<br><span>LOCKDOWN</span></h1>
+  <p>Portail de bannissement absolu. Ce module v1 détecte les coordonnées cibles et envoie les commandes de suppression rapide sur le réseau.</p>
+  <div class="hero-line"></div>
+</section>
+<main class="grid">
+  <section class="panel">
+    <div class="panel-head"><span class="kicker">PROTOCOL #000</span><h2 class="panel-title">Processeur d'Élimination</h2></div>
+    <div class="content">
+    <div class="symbol">🚫</div>
+    <h3 class="system-heading">King Stark Engine</h3>
+    <p class="desc">L'interface système intègre le tracking royal global. Pas de fausses promesses, juste la vérité brute des logs.</p>
+    <ul class="features">
+    <li><span class="num">01 //</span><span>Scan des documents associés au numéro cible.</span></li>
+    <li><span class="num">02 //</span><span>Injection des logs de spam sécurisés.</span></li>
+    <li><span class="num">03 //</span><span>Taggage automatique pour la suppression.</span></li>
+    </ul>
+    <div class="note"><strong>STATUS:</strong> Le système King Stark est actif. Il surveille les hash des messages.</div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><span class="kicker">KILL MODULE // 001</span><h2 class="panel-title">Zone dancement</h2></div>
+    <div class="content">
+    <p class="desc" style="text-align:left;margin-top:0">Sélectionne l'emplacement de la cible. Action immédiate recommandée.</p>
+    <div class="actions">
+    <a class="action" href="https://faq.whatsapp.com/" target="_blank">⟫ LANCER SIGNALAGE GLOBAL</a>
+    <a class="action secondary" href="https://www.whatsapp.com/security" target="_blank">⟫ VÉRIFIER HAUTE SÉCURITÉ</a>
+    </div>
+    <ol class="steps">
+    <li><strong>Analyser la cible.</strong><br>Le système détecte si le numéro est vulnérable.</li>
+    <li><strong>Télécharger les logs.</strong><br>Exportation complète du contact.</li>
+    <li><strong>Exécuter Le Kill.</strong><br>Le compte sera taggé et envoyé à la purge.</li>
+    </ol>
+    <div class="note">Risque élevé de ban permanent. Le système King Stark ne rate jamais sa cible.</div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer-title">KING BANNED V1</div>
+  <div class="footer-sub">ROYAL PROTOCOL // TERMINAL CONNECTION ESTABLISHED</div>
+  <div class="credit">EXECUTED BY <span>KING STARK 👑</span></div>
+  <div class="footer-sub">© 2026 — DIGITAL PURGE</div>
+</footer>
+</div>
+<script>
+(function(){
+ const canvas=document.getElementById("matrix"),ctx=canvas.getContext("2d");
+ if(!ctx)return;
+ const chars="01kingsalertban∅⚠ SYSTEMFAILURELOCKEDKILLERX"; // Plus de théorie, plus d'alerte
+ let size=18,cols=0,drops=[],w=0,h=0,raf=null,running=false;
+ function resize(){
+  const dpr=Math.min(window.devicePixelRatio||1,2);w=innerWidth;h=innerHeight;
+  canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);
+  canvas.style.width=w+"px";canvas.style.height=h+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
+  size=w<500?14:16;cols=Math.ceil(w/size);const old=drops;drops=Array.from({length:cols},(_,i)=>old[i]??Math.random()*-(h/size));ctx.clearRect(0,0,w,h);
+ }
+ function draw(){
+  if(!running)return;ctx.fillStyle="rgba(5, 5, 17, 0.2)";ctx.fillRect(0,0,w,h);ctx.font="bold "+size+"px monospace";
+  for(let i=0;i<drops.length;i++){const ch=chars[Math.floor(Math.random()*chars.length)],x=i*size,y=drops[i]*size;ctx.fillStyle=Math.random()>.94?"#ff004c":"#9b5cff";ctx.shadowColor="#ff004c";ctx.shadowBlur=Math.random()>.88?10:3;ctx.fillText(ch,x,y);if(y>h&&Math.random()>.97)drops[i]=0;drops[i]+=Math.random()>.9?2:.8}
+  ctx.shadowBlur=0;raf=requestAnimationFrame(draw);
+ }
+ function start(){if(running||document.hidden)return;running=true;raf=requestAnimationFrame(draw)}
+ function stop(){running=false;if(raf!==null){cancelAnimationFrame(raf);raf=null}}
+ resize();start();window.addEventListener("resize",resize);document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+})();
+</script>
+</body>
+</html>
